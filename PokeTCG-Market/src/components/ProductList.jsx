@@ -14,7 +14,7 @@ const ProductList = ({ category = null }) =>
     if (category) 
     {
       
-      url = `https://api.pokemontcg.io/v2/cards?pageSize=10&q= subtypes:"${category}"`;
+      url = `https://api.pokemontcg.io/v2/cards?pageSize=10&q= types:"${category}"`;
       console.log(url)
     }
 //filter(card=card?.cardmarket?.prices?.averageSellPrice

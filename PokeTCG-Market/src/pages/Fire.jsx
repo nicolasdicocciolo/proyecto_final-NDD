@@ -1,13 +1,13 @@
 import React from 'react';
 import ProductList from '../components/ProductList';
 
-const Basics = () => {
+const Fire = () => {
   return (
     <div className="container">
-      <h1>Basics</h1>
-      <ProductList category="Basic" />
+      <h1>Stage 1</h1>
+      <ProductList category="fire" />
     </div>
   );
 };
 
-export default Basics;
+export default Fire;

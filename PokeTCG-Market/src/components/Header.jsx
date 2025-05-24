@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import SearchBar from './SearchBar'
 
 const Header = () => {
   return (
@@ -19,10 +20,12 @@ const Header = () => {
 
         <Nav className="ms-auto align-items-center">
           <Nav.Link as={Link} to="/" className="me-3">Todas las cartas</Nav.Link>
-          <Nav.Link as={Link} to="/stage2" className="me-3">Stage 2</Nav.Link>
-          <Nav.Link as={Link} to="/stage1" className="me-3">Stage 1</Nav.Link>
+          <Nav.Link as={Link} to="/water" className="me-3">Water</Nav.Link>
+          <Nav.Link as={Link} to="/fire" className="me-3">Fire</Nav.Link>
+          <Nav.Link as={Link} to="/grass" className="me-3">Grass</Nav.Link>
+          <Nav.Link as={Link} to="/lightning" className="me-3">Lightning</Nav.Link>
+          <Nav.Link as={Link} to="/psychic" className="me-3">Psychic</Nav.Link>
           <Nav.Link as={Link} to="/search" className="me-3">Search</Nav.Link>
-          <Nav.Link as={Link} to="/basics" className="me-3">Basics</Nav.Link>
 
           <div className="d-flex align-items-center">
             <Button variant="outline-light" as={Link} to="/administracion" className="me-2">
