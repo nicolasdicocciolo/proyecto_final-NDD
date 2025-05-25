@@ -9,7 +9,8 @@ import Search from './pages/Search';
 import Grass from './pages/Grass'
 import Lightning from './pages/Lightning'
 import Psychic from './pages/Psychic'
-
+import SearchBar from './components/SearchBar';
+// <Route path="/search" element={<Search />} />
 
 function App() {
   return (
@@ -17,11 +18,11 @@ function App() {
       <Header />
       <Routes>
         <Route path="/administracion" element={<Login />} />
+        <Route path="/searchbar" element={<SearchBar />} />
         <Route path="/" element={<Home />} />
         <Route path="/water" element={<Water />} />
         <Route path="/fire" element={<Fire />} />
         <Route path="/grass" element={<Grass />} />
-        <Route path="/search" element={<Search />} />
         <Route path="/lightning" element={<Lightning />} />
         <Route path="/psychic" element={<Psychic />} />
       </Routes>

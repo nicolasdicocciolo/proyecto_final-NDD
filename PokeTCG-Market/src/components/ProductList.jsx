@@ -2,19 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import ProductCard from './ProductCard';
 
-const ProductList = ({ category = null }) => 
+const ProductList = ({ types = null }) => 
     {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("")
+
+
 
   useEffect(() => 
     {
-    let url = 'https://api.pokemontcg.io/v2/cards?pageSize=10';
-    if (category) 
+    let url = 'https://api.pokemontcg.io/v2/cards?pageSize=50&q= nationalPokedexNumbers:[1 TO 151] set.id:base4';
+    if (types) 
     {
       
-      url = `https://api.pokemontcg.io/v2/cards?pageSize=10&q= types:"${category}"`;
+      url = `https://api.pokemontcg.io/v2/cards?pageSize=50&q= types:"${types}" nationalPokedexNumbers:[1 TO 151] set.id:base4`;
       console.log(url)
     }
 //filter(card=card?.cardmarket?.prices?.averageSellPrice
@@ -28,11 +29,16 @@ const ProductList = ({ category = null }) =>
         console.error('Error fetching data:', error);
         setLoading(false);
       });
-  }, [category]);
+  }, [types]);
+
 
   const handleAgregarAlCarrito = (product) => {
-    alert(`Producto ${product.title} agregado al carrito`);
+    alert(`${product.name} added to cart`);
   };
+
+
+
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -43,6 +49,7 @@ const ProductList = ({ category = null }) =>
       {products.map((product=product?.cardmarket?.prices?.averageSellPrice) => (
         <Col md={4} key={product.id} className="mb-4">
           <ProductCard product={product} agregarAlCarrito={handleAgregarAlCarrito} />
+
         </Col>
       ))}
     </Row>

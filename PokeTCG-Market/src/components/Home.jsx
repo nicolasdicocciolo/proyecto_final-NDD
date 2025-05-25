@@ -4,7 +4,7 @@ import ProductList from './ProductList';
 const Home = () => {
   return (
     <div className="container">
-      <h1>Todos los productos</h1>
+      <h1>All Cards</h1>
       <ProductList />
     </div>
   );

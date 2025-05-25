@@ -4,8 +4,8 @@ import ProductList from '../components/ProductList';
 const Water = () => {
   return (
     <div className="container">
-      <h1>Water</h1>
-      <ProductList category="Water" />
+      <h1>Water Pokemons</h1>
+      <ProductList types="Water" />
     </div>
   );
 };

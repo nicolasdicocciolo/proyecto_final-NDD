@@ -5,26 +5,29 @@ const ProductCard = ({ product, agregarAlCarrito }) => {
   return (
 
     // Armo la cards
-    <Card className="h-100 d-flex flex-column">
+    <Card className="h-100 d-flex flex-column" border='dark'>
       <Card.Img
         variant="top"
         src={product.images.small}
         alt={product.name}
         className="card-img-top img-fluid" 
-        style={{ height: '400px', objectFit: 'scale-down' }} 
+        style={{ height: '300px' , objectFit: 'scale-down' }} 
       />
 
       <Card.Body className="d-flex flex-column">
         <Card.Title>{product.name}</Card.Title>
         <Card.Text>
-          {product.set.flavorText}...
+          <i>set: {product.set.name}</i>
+        </Card.Text>
+        <Card.Text>
+        <i>rarity: {product.rarity}</i>
         </Card.Text>
         <Card.Text>
           <strong>${product.cardmarket.prices.averageSellPrice}</strong>
         </Card.Text>
         
         <Button variant="primary" onClick={() => agregarAlCarrito(product)}>
-          Agregar al carrito
+          Add to Cart
         </Button>
       </Card.Body>
     </Card>

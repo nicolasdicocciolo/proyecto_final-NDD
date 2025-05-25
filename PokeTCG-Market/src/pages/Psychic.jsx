@@ -4,8 +4,8 @@ import ProductList from '../components/ProductList';
 const Psychic = () => {
   return (
     <div className="container">
-      <h1>Psychic </h1>
-      <ProductList category="psychic" />
+      <h1>Psychic Pokemons</h1>
+      <ProductList types="psychic" />
     </div>
   );
 };
