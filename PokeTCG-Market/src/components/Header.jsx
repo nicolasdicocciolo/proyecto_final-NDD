@@ -1,13 +1,22 @@
-import React from 'react';
+
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Button, Form} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import SearchBar from './SearchBar';
-import ProductList from './ProductList';
+
 //import React, { useEffect, useState } from 'react';
 
-const Header = () => {
+const Header = ({ onSearch }) => {
+
+  const [query, setQuery] = useState("");
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+    onSearch(e.target.value); // Envía el término de búsqueda al componente padre
+  };
+
+
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
@@ -32,7 +41,7 @@ const Header = () => {
           <Nav.Link as={Link} to="/search" className="me-3">Search</Nav.Link>
 
           <div className="d-flex align-items-center">
-            <Form.Control type="text" placeholder="Buscar..." required />
+            <Form.Control type="text" placeholder="Buscar..." value={query} onChange={handleChange} required />
             <Button variant="outline-light" as={Link} to="/administracion" className="me-2">
               Login
             </Button>
