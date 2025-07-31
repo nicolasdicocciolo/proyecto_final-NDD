@@ -7,11 +7,15 @@ import Fire from './pages/Fire';
 import Login from './components/Login'; 
 import Footer from './components/Footer';
 import Search from './pages/Search';
-import Grass from './pages/Grass'
-import Lightning from './pages/Lightning'
-import Psychic from './pages/Psychic'
-import SearchBar from './components/SearchBar'
-import ProductList from "./components/ProductList";
+import Grass from './pages/Grass';
+import Lightning from './pages/Lightning';
+import Psychic from './pages/Psychic';
+
+import Carrito from './components/Carrito'; 
+import CrudProductos from './components/CrudProductos';
+import { CartProvider } from './components/CartContext';
+
+
 
 
 // <Route path="/search" element={<Search />} />
@@ -20,6 +24,11 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
+
+
+    <CartProvider>
+
+
     <Router>
       <Header onSearch={setSearchTerm}/>
       <Routes>
@@ -32,9 +41,20 @@ function App() {
         <Route path="/grass" element={<Grass />} />
         <Route path="/lightning" element={<Lightning />} />
         <Route path="/psychic" element={<Psychic />} />
+
+
+        <Route path="/carrito" element={<Carrito />} />
+        <Route path="/crud" element={<CrudProductos />} />
+
+        
       </Routes>
       <Footer/>
     </Router>
+
+
+    </CartProvider>
+
+
   );
 }
 
