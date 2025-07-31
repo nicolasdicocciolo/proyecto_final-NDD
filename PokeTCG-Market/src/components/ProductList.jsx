@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import ProductCard from './ProductCard';
+import { CartContext } from './CartContext';
 
 const ProductList = ({ types = null ,searchTerm=null}) => 
     {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { agregarAlCarrito } = useContext(CartContext);
 
 
     //AND set.id:base4
 
   useEffect(() => 
     {
-    let url = 'https://api.pokemontcg.io/v2/cards?pageSize=50&q= nationalPokedexNumbers:[1 TO 251]';
+    let url = 'https://api.pokemontcg.io/v2/cards?pageSize=2&q= nationalPokedexNumbers:[1 TO 251]';
     if (types) 
     {
       
-      url = `https://api.pokemontcg.io/v2/cards?pageSize=50&q= types:"${types}" AND nationalPokedexNumbers:[1 TO 251] `;
+      url = `https://api.pokemontcg.io/v2/cards?pageSize=2&q= types:"${types}" AND nationalPokedexNumbers:[1 TO 251] `;
       console.log(url)
     }
     if (searchTerm) {
@@ -56,7 +58,8 @@ const ProductList = ({ types = null ,searchTerm=null}) =>
     <Row>
       {filteredProducts.map((product) => (
         <Col md={4} key={product.id} className="mb-4">
-          <ProductCard product={product} agregarAlCarrito={handleAgregarAlCarrito} />
+          <ProductCard product={product} agregarAlCarrito={agregarAlCarrito} />
+          
 
         </Col>
       ))}

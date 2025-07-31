@@ -1,13 +1,16 @@
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Button, Form} from 'react-bootstrap';
+import { Navbar, Nav, Container, Button, Form,Badge} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { CartContext } from './CartContext';
 
 //import React, { useEffect, useState } from 'react';
 
 const Header = ({ onSearch }) => {
+  const { carrito } = useContext(CartContext);
+  const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
 
   const [query, setQuery] = useState("");
 
@@ -47,6 +50,11 @@ const Header = ({ onSearch }) => {
             </Button>
             <Link to="/carrito" className="text-white">
               <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+                {totalItems > 0 && (
+                <Badge pill bg="danger" className="position-absolute top-48 start-150 translate-middle">
+                  {totalItems}
+                </Badge>
+              )}
             </Link>
           </div>
         </Nav>
