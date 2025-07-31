@@ -23,7 +23,6 @@ const Header = ({ onSearch }) => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
-      <link rel="icon" type="image/png" href="/3"/>
       <Container>       
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
           <img
