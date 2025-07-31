@@ -14,6 +14,7 @@ import Psychic from './pages/Psychic';
 import Carrito from './components/Carrito'; 
 import CrudProductos from './components/CrudProductos';
 import { CartProvider } from './components/CartContext';
+import Contact from './pages/Contact';
 
 
 
@@ -41,6 +42,8 @@ function App() {
         <Route path="/grass" element={<Grass />} />
         <Route path="/lightning" element={<Lightning />} />
         <Route path="/psychic" element={<Psychic />} />
+        <Route path="/contact" element={<Contact />} />
+
 
 
         <Route path="/carrito" element={<Carrito />} />

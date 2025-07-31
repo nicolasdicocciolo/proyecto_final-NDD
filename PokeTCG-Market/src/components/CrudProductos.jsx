@@ -81,7 +81,7 @@ const CrudProductos = () => {
 
   return (
     <div className="container mt-4">
-      <h2>CRUD de Productos</h2>
+      <h2>Administrator panel</h2>
       <Button className="mb-3" onClick={() => handleShow()}>Agregar Producto</Button>
       <Table striped bordered hover>
         <thead>

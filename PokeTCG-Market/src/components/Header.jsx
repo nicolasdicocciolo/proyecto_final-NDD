@@ -41,6 +41,7 @@ const Header = ({ onSearch }) => {
           <Nav.Link as={Link} to="/grass" className="me-3">Grass</Nav.Link>
           <Nav.Link as={Link} to="/lightning" className="me-3">Lightning</Nav.Link>
           <Nav.Link as={Link} to="/psychic" className="me-3">Psychic</Nav.Link>
+          <Nav.Link as={Link} to="/contact" className="me-3">Contact with us</Nav.Link>
           <Nav.Link as={Link} to="/search" className="me-3">Search</Nav.Link>
 
           <div className="d-flex align-items-center">
